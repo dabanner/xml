@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<recipebox>
+<ingredients>
+    <ingredient ingredientId="i1">Spaghetti</ingredient>
+    <ingredient ingredientId="i2">Tomato Sauce</ingredient>
+    <ingredient ingredientId="i3">Chicken</ingredient>
+    <ingredient ingredientId="i4">Vegetables</ingredient>
+</ingredients>
+
+<recipes>
+    <recipe id="r1">
+        <name>Spaghetti Bolognese</name>
+        <description>A classic Italian pasta dish with meat sauce</description>
+        <ingredients>
+            <ingredientRef ingredientId="i1" amount="250" unit="g"/>
+            <ingredientRef ingredientId="i2" amount="500" unit="g"/>
+        </ingredients>
+        <instructions>Cook spaghetti, prepare sauce, mix together and serve hot.</instructions>
+        <prepTime>15</prepTime> <!-- 15 minutes -->
+        <cookTime>30</cookTime> <!-- 30 minutes -->
+        <servings>4</servings>
+        <cuisine>Italian</cuisine>
+        <mealType>Dinner</mealType>
+        <skillLevel>Intermediate</skillLevel>
+        <calories>400</calories>
+    </recipe>
+    <recipe id="r2">
+        <name>Chicken Stir-Fry</name>
+        <description>A quick and healthy stir-fry dish</description>
+        <ingredients>
+            <ingredientRef ingredientId="i3" amount="300" unit="g"/>
+            <ingredientRef ingredientId="i4" amount="200" unit="g"/>
+        </ingredients>
+        <instructions>Stir-fry chicken and vegetables, season with sauce and serve.</instructions>
+        <prepTime>10</prepTime> <!-- 10 minutes -->
+        <cookTime>20</cookTime> <!-- 20 minutes -->
+        <servings>2</servings>
+        <cuisine>Chinese</cuisine>
+        <mealType>Dinner</mealType>
+        <skillLevel>Intermediate</skillLevel>
+        <calories>300</calories>
+    </recipe>
+</recipes>
+
+<menus>
+    <menu id="m1">
+        <name>Weekly Menu 1</name>
+        <description>A selection of recipes for the week</description>
+        <recipes>
+            <menuRecipe recipeRef="r1" day="Monday"/>
+            <menuRecipe recipeRef="r2" day="Wednesday"/>
+        </recipes>
+    </menu>
+</menus>
+
+<orders>
+    <order id="o1">
+        <customer id="c1">
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+            <email>john.doe@example.com</email>
+            <phone>1234567890</phone>
+            <address>123 Main St, Anytown, USA</address>
+        </customer>
+        <menu>m1</menu>
+        <deliveryDate>2024-03-10</deliveryDate>
+        <deliveryAddress>456 Elm St, Anytown, USA</deliveryAddress>
+        <total>25.99</total>
+    </order>
+</orders>
+
+<customers>
+    <customer id="c1">
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+        <email>john.doe@example.com</email>
+        <phone>1234567890</phone>
+        <address>123 Main St, Anytown, USA</address>
+    </customer>
+</customers>
+
+<feedback>
+    <review id="f1">
+        <customer>c1</customer>
+        <recipe>r1</recipe>
+        <rating>5</rating>
+        <comment>Delicious!</comment>
+    </review>
+</feedback>
+
+<deliveryStaff>
+    <employee id="e1">
+        <name>Jane Smith</name>
+        <phone>9876543210</phone>
+    </employee>
+</deliveryStaff>
+
+</recipebox>
