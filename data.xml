@@ -1,99 +1,347 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="schema.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <recipebox>
-<ingredients>
-    <ingredient ingredientId="i1">Spaghetti</ingredient>
-    <ingredient ingredientId="i2">Tomato Sauce</ingredient>
-    <ingredient ingredientId="i3">Chicken</ingredient>
-    <ingredient ingredientId="i4">Vegetables</ingredient>
-</ingredients>
+    <ingredients>
+        <ingredient id="flour"/>
+        <ingredient id="sugar"/>
+        <ingredient id="eggs"/>
+        <ingredient id="chocolate"/>
+        <ingredient id="milk"/>
+        <ingredient id="parmesan"/>
+        <ingredient id="Spinach"/>
+        <ingredient id="feta"/>
+        <ingredient id="garlic"/>
+        <ingredient id="olive"/>
+        <ingredient id="butter"/>
+        <ingredient id="Heavycream"/>
+        <ingredient id="Parmesancheese"/>
+        <ingredient id="Teriyakisauce"/>
+        <ingredient id="Mango"/>
+        <ingredient id="Chickpeas"/>
+        <ingredient id="Ginger"/>
+        <ingredient id="Cilantro"/>
+        <ingredient id="Oliveoil"/>
+        <ingredient id="Currypowder"/>
+        <ingredient id="Fetacheese"/>
+        <ingredient id="Redonion"/>
+        <ingredient id="Limejuice"/>
+        <ingredient id="Lettuce"/>
+        <ingredient id="Chickenthighs"/>
+        <ingredient id="Tortillas"/>
+        <ingredient id="Chickenbreast"/>
+        <ingredient id="Tomatoes"/>
+        <ingredient id="Shrimp"/>
+        <ingredient id="Herbs"/>
+        <ingredient id="Greenonions"/>
+        <ingredient id="Onions"/>
+        <ingredient id="Butter"/>
+        <ingredient id="Bellpeppers"/>
+        <ingredient id="Whitewine"/>
+        <ingredient id="Broccoli"/>
+        <ingredient id="Carrots"/>
+        <ingredient id="Tacoseasoning"/>
+        <ingredient id="Sourcream"/>
+        <ingredient id="Salmonfillets"/>
+        <ingredient id="Avocado"/>
+        <ingredient id="Garlic"/>
+        <ingredient id="Pasta"/>
+        <ingredient id="Parsley"/>
+        <ingredient id="Chickenbreasts"/>
+        <ingredient id="Soysauce"/>
+        <ingredient id="Linguine"/>
+    </ingredients>
 
-<recipes>
-    <recipe id="r1">
-        <name>Spaghetti Bolognese</name>
-        <description>A classic Italian pasta dish with meat sauce</description>
-        <ingredients>
-            <ingredientRef ingredientId="i1" amount="250" unit="g"/>
-            <ingredientRef ingredientId="i2" amount="500" unit="g"/>
-        </ingredients>
-        <instructions>Cook spaghetti, prepare sauce, mix together and serve hot.</instructions>
-        <prepTime>15</prepTime> <!-- 15 minutes -->
-        <cookTime>30</cookTime> <!-- 30 minutes -->
-        <servings>4</servings>
-        <cuisine>Italian</cuisine>
-        <mealType>Dinner</mealType>
-        <skillLevel>Intermediate</skillLevel>
-        <calories>400</calories>
-    </recipe>
-    <recipe id="r2">
-        <name>Chicken Stir-Fry</name>
-        <description>A quick and healthy stir-fry dish</description>
-        <ingredients>
-            <ingredientRef ingredientId="i3" amount="300" unit="g"/>
-            <ingredientRef ingredientId="i4" amount="200" unit="g"/>
-        </ingredients>
-        <instructions>Stir-fry chicken and vegetables, season with sauce and serve.</instructions>
-        <prepTime>10</prepTime> <!-- 10 minutes -->
-        <cookTime>20</cookTime> <!-- 20 minutes -->
-        <servings>2</servings>
-        <cuisine>Chinese</cuisine>
-        <mealType>Dinner</mealType>
-        <skillLevel>Intermediate</skillLevel>
-        <calories>300</calories>
-    </recipe>
-</recipes>
+    <recipes>
+        <recipe id="r1">
+            <name>Chocolate Cake</name>
+            <description>A delicious chocolate cake recipe</description>
+            <ingredients>
+                <ingredientRef>flour</ingredientRef>
+                <ingredientRef>chocolate</ingredientRef>
+                <ingredientRef>milk</ingredientRef>
+                <ingredientRef>eggs</ingredientRef>
+            </ingredients>
+            <instructions>Bake in preheated oven at 350°F for 30 minutes.</instructions>
+            <prepTime>15</prepTime>
+            <cookTime>30</cookTime>
+            <servings>8</servings>
+            <cuisine>American</cuisine>
+            <calories>300</calories>
+        </recipe>
 
-<menus>
-    <menu id="m1">
-        <name>Weekly Menu 1</name>
-        <description>A selection of recipes for the week</description>
-        <recipes>
-            <menuRecipe recipeRef="r1" day="Monday"/>
-            <menuRecipe recipeRef="r2" day="Wednesday"/>
-        </recipes>
-    </menu>
-</menus>
+        <recipe id="r2">
+            <name>Spaghetti Bolognese</name>
+            <description>Classic Italian pasta dish</description>
+            <ingredients>
+                <ingredientRef>parmesan</ingredientRef>
+                <ingredientRef>Spinach</ingredientRef>
+                <ingredientRef>feta</ingredientRef>
+                <ingredientRef>garlic</ingredientRef>
+                <ingredientRef>olive</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Butter</ingredientRef>
+            </ingredients>
+            <instructions>Cook spaghetti and brown ground beef. Mix with tomato sauce and serve.</instructions>
+            <prepTime>20</prepTime>
+            <cookTime>40</cookTime>
+            <servings>4</servings>
+            <cuisine>Italian</cuisine>
+            <calories>450</calories>
+        </recipe>
+        <recipe id="r3">
+            <name>Chicken Alfredo Pasta</name>
+            <description>Creamy and savory chicken Alfredo pasta</description>
+            <ingredients>
+                <ingredientRef>Pasta</ingredientRef>
+                <ingredientRef>Chickenbreast</ingredientRef>
+                <ingredientRef>Heavycream</ingredientRef>
+                <ingredientRef>Parmesancheese</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Butter</ingredientRef>
+            </ingredients>
+            <instructions>Cook pasta, sauté chicken, and mix with a creamy Alfredo sauce.</instructions>
+            <prepTime>25</prepTime>
+            <cookTime>20</cookTime>
+            <servings>6</servings>
+            <cuisine>Italian</cuisine>
+            <calories>500</calories>
+        </recipe>
 
-<orders>
-    <order id="o1">
+        <recipe id="r4">
+            <name>Spinach and Feta Stuffed Chicken</name>
+            <description>Delicious spinach and feta stuffed chicken breasts</description>
+            <ingredients>
+                <ingredientRef>Chickenbreasts</ingredientRef>
+                <ingredientRef>Spinach</ingredientRef>
+                <ingredientRef>Fetacheese</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Oliveoil</ingredientRef>
+                <ingredientRef>Herbs</ingredientRef>
+            </ingredients>
+            <instructions>Stuff chicken with spinach and feta, bake until golden brown.</instructions>
+            <prepTime>30</prepTime>
+            <cookTime>25</cookTime>
+            <servings>4</servings>
+            <cuisine>Mediterranean</cuisine>
+            <calories>350</calories>
+        </recipe>
+
+        <recipe id="r5">
+            <name>Vegetarian Stir-Fry</name>
+            <description>Quick and tasty vegetable stir-fry</description>
+            <ingredients>
+                <ingredientRef>Broccoli</ingredientRef>
+                <ingredientRef>Carrots</ingredientRef>
+                <ingredientRef>Bellpeppers</ingredientRef>
+                <ingredientRef>Soysauce</ingredientRef>
+                <ingredientRef>Ginger</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+            </ingredients>
+            <instructions>Sauté vegetables in a hot pan with soy sauce, ginger, and garlic.</instructions>
+            <prepTime>15</prepTime>
+            <cookTime>10</cookTime>
+            <servings>3</servings>
+            <cuisine>American</cuisine>
+            <calories>200</calories>
+        </recipe>
+
+        <recipe id="r6">
+            <name>Mango Avocado Salad</name>
+            <description>Refreshing mango and avocado salad</description>
+            <ingredients>
+                <ingredientRef>Mango</ingredientRef>
+                <ingredientRef>Avocado</ingredientRef>
+                <ingredientRef>Redonion</ingredientRef>
+                <ingredientRef>Cilantro</ingredientRef>
+                <ingredientRef>Limejuice</ingredientRef>
+                <ingredientRef>Oliveoil</ingredientRef>
+            </ingredients>
+            <instructions>Combine diced mango, avocado, red onion, and cilantro. Dress with lime juice and olive oil.</instructions>
+            <prepTime>15</prepTime>
+            <cookTime>0</cookTime>
+            <servings>2</servings>
+            <cuisine>Mexican</cuisine>
+            <calories>180</calories>
+        </recipe>
+
+        <recipe id="r7">
+            <name>Teriyaki Salmon</name>
+            <description>Flavorful teriyaki-glazed salmon</description>
+            <ingredients>
+                <ingredientRef>Salmonfillets</ingredientRef>
+                <ingredientRef>Soysauce</ingredientRef>
+                <ingredientRef>Teriyakisauce</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Ginger</ingredientRef>
+                <ingredientRef>Greenonions</ingredientRef>
+            </ingredients>
+            <instructions>Marinate salmon in a mixture of soy sauce, teriyaki sauce, garlic, and ginger. Grill until cooked.</instructions>
+            <prepTime>20</prepTime>
+            <cookTime>15</cookTime>
+            <servings>4</servings>
+            <cuisine>Japanese</cuisine>
+            <calories>300</calories>
+        </recipe>
+
+        <recipe id="r8">
+            <name>Chicken Tacos</name>
+            <description>Spicy and flavorful chicken tacos</description>
+            <ingredients>
+                <ingredientRef>Chickenthighs</ingredientRef>
+                <ingredientRef>Tacoseasoning</ingredientRef>
+                <ingredientRef>Tortillas</ingredientRef>
+                <ingredientRef>Lettuce</ingredientRef>
+                <ingredientRef>Tomatoes</ingredientRef>
+                <ingredientRef>Sourcream</ingredientRef>
+            </ingredients>
+            <instructions>Cook seasoned chicken, assemble tacos with lettuce, tomatoes, and sour cream.</instructions>
+            <prepTime>25</prepTime>
+            <cookTime>20</cookTime>
+            <servings>6</servings>
+            <cuisine>Mexican</cuisine>
+            <calories>400</calories>
+        </recipe>
+
+        <recipe id="r9">
+            <name>Shrimp Scampi</name>
+            <description>Garlicky shrimp scampi over linguine</description>
+            <ingredients>
+                <ingredientRef>Shrimp</ingredientRef>
+                <ingredientRef>Linguine</ingredientRef>
+                <ingredientRef>Butter</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Whitewine</ingredientRef>
+                <ingredientRef>Parsley</ingredientRef>
+            </ingredients>
+            <instructions>Sauté shrimp in butter and garlic, deglaze with white wine, and toss with linguine and parsley.</instructions>
+            <prepTime>20</prepTime>
+            <cookTime>15</cookTime>
+            <servings>4</servings>
+            <cuisine>Italian</cuisine>
+            <calories>350</calories>
+        </recipe>
+
+        <recipe id="r10">
+            <name>Chickpea Curry</name>
+            <description>Hearty chickpea curry with aromatic spices</description>
+            <ingredients>
+                <ingredientRef>Chickpeas</ingredientRef>
+                <ingredientRef>Tomatoes</ingredientRef>
+                <ingredientRef>Onions</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Ginger</ingredientRef>
+                <ingredientRef>Currypowder</ingredientRef>
+            </ingredients>
+            <instructions>Sauté onions, garlic, and ginger, add chickpeas, tomatoes, and curry powder. Simmer until flavors meld.</instructions>
+            <prepTime>15</prepTime>
+            <cookTime>30</cookTime>
+            <servings>4</servings>
+            <cuisine>Indian</cuisine>
+            <calories>250</calories>
+        </recipe>
+    </recipes>
+
+    <customers>
         <customer id="c1">
             <firstName>John</firstName>
             <lastName>Doe</lastName>
             <email>john.doe@example.com</email>
-            <phone>1234567890</phone>
-            <address>123 Main St, Anytown, USA</address>
+            <phone>123-456-7890</phone>
+            <address>123 Main St, Cityville</address>
         </customer>
-        <menu>m1</menu>
-        <deliveryDate>2024-03-10</deliveryDate>
-        <deliveryAddress>456 Elm St, Anytown, USA</deliveryAddress>
-        <total>25.99</total>
-    </order>
-</orders>
 
-<customers>
-    <customer id="c1">
-        <firstName>John</firstName>
-        <lastName>Doe</lastName>
-        <email>john.doe@example.com</email>
-        <phone>1234567890</phone>
-        <address>123 Main St, Anytown, USA</address>
-    </customer>
-</customers>
+        <customer id="c2">
+            <firstName>Jane</firstName>
+            <lastName>Smith</lastName>
+            <email>jane.smith@example.com</email>
+            <phone>987-654-3210</phone>
+            <address>456 Oak Ave, Townsville</address>
+        </customer>
 
-<feedback>
-    <review id="f1">
-        <customer>c1</customer>
-        <recipe>r1</recipe>
-        <rating>5</rating>
-        <comment>Delicious!</comment>
-    </review>
-</feedback>
+        <customer id="c3">
+            <firstName>Mike</firstName>
+            <lastName>Johnson</lastName>
+            <email>mike.johnson@example.com</email>
+            <phone>555-123-4567</phone>
+            <address>789 Pine Rd, Villagetown</address>
+        </customer>
 
-<deliveryStaff>
-    <employee id="e1">
-        <name>Jane Smith</name>
-        <phone>9876543210</phone>
-    </employee>
-</deliveryStaff>
+        <customer id="c4">
+            <firstName>Alice</firstName>
+            <lastName>Brown</lastName>
+            <email>alice.brown@example.com</email>
+            <phone>222-987-6543</phone>
+            <address>101 Cedar Ln, Hamlet City</address>
+        </customer>
 
+        <customer id="c5">
+            <firstName>David</firstName>
+            <lastName>Miller</lastName>
+            <email>david.miller@example.com</email>
+            <phone>777-888-9999</phone>
+            <address>202 Elm St, Riverside</address>
+        </customer>
+    </customers>
+
+    <orders>
+        <order id="o1">
+            <customer>c1</customer>
+            <recipe>r1</recipe>
+            <deliveryDate>2024-03-15</deliveryDate>
+            <deliveryAddress>456 Oak St, Townsville</deliveryAddress>
+            <deliveryInstructions>Leave at the front door</deliveryInstructions>
+            <total>25.99</total>
+        </order>
+
+        <order id="o2">
+            <customer>c2</customer>
+            <recipe>r2</recipe>
+            <deliveryDate>2024-03-16</deliveryDate>
+            <deliveryAddress>101 Pine St, Forestville</deliveryAddress>
+            <deliveryInstructions>Call upon arrival</deliveryInstructions>
+            <total>32.50</total>
+        </order>
+    </orders>
+
+    <deliveryStaffList>
+        <deliveryStaff id="ds1">
+            <name>John Doe</name>
+            <phone>123-456-7890</phone>
+        </deliveryStaff>
+
+        <deliveryStaff id="ds2">
+            <name>Jane Smith</name>
+            <phone>987-654-3210</phone>
+        </deliveryStaff>
+
+        <deliveryStaff id="ds3">
+            <name>Michael Johnson</name>
+            <phone>555-123-4567</phone>
+        </deliveryStaff>
+    </deliveryStaffList>
+
+    <feedback>
+
+        <feedback id="f1">
+            <customer>c1</customer>
+            <recipe>r1</recipe>
+            <rating>5</rating>
+            <comment>Delicious chocolate cake! Loved it!</comment>
+        </feedback>
+
+        <feedback id="f2">
+            <customer>c2</customer>
+            <recipe>r2</recipe>
+            <rating>4</rating>
+            <comment>Great pasta dish, but could use a bit more spice.</comment>
+        </feedback>
+
+        <feedback id="f3">
+            <customer>c3</customer>
+            <recipe>r3</recipe>
+            <rating>3</rating>
+            <comment>Chicken Alfredo was okay, but too rich for my taste.</comment>
+        </feedback>
+
+    </feedback>
 </recipebox>
