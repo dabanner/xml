@@ -1,142 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="recipebox">
-        <xs:complexType>
+  <xs:element name="company">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="recipes"/>
+        <xs:element ref="menus"/>
+        <xs:element ref="ingredients"/>
+        <xs:element ref="orders"/>
+        <xs:element ref="customer-feedback"/>
+        <xs:element ref="delivery-staff"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="recipeId">
+      <xs:selector xpath="recipes/recipe"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="menuId">
+      <xs:selector xpath="menus/menu"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="ingredientId">
+      <xs:selector xpath="ingredients/ingredient"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="orderId">
+      <xs:selector xpath="orders/order"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="customerId">
+      <xs:selector xpath="orders/order/customer"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="deliveryPersonId">
+      <xs:selector xpath="delivery-staff/person"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+  </xs:element>
+
+  <xs:element name="recipes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="recipe" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="recipe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="description" type="xs:string"/>
+        <xs:element name="cuisine" type="xs:string"/>
+        <xs:element name="meal-type" type="mealType"/>
+        <xs:element name="prep-time" type="xs:int"/>
+        <xs:element name="cook-time" type="xs:int"/>
+        <xs:element name="servings" type="xs:positiveInteger"/>
+        <xs:element name="calories" type="xs:nonNegativeInteger"/>
+        <xs:element name="ingredients">
+          <xs:complexType>
             <xs:sequence>
-                <xs:element name="ingredients" type="IngredientsType"/>
-                <xs:element name="recipes" type="recipeList"></xs:element>
-                <xs:element name="customers" type="customerList"></xs:element>
-                <xs:element name="orders" type="orderList"></xs:element>
-                <xs:element name="deliveryStaffList" type="deliveryStaffList"></xs:element>
-                <xs:element name="feedback" type="feedbackList"></xs:element>
+              <xs:element name="ingredient" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+                  <xs:attribute name="amount" type="xs:decimal"/>
+                  <xs:attribute name="unit" type="xs:string"/>
+                </xs:complexType>
+                <xs:key name="ingredientRef">
+                  <xs:selector xpath="ingredient"/>
+                  <xs:field xpath="@ref"/>
+                </xs:key>
+              </xs:element>
             </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:complexType name="Recipe">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string" />
-            <xs:element name="description" type="xs:string" />
-            <xs:element name="ingredients" type="ingredientList"></xs:element>
-            <xs:element name="instructions" type="xs:string" />
-            <xs:element name="prepTime" type="xs:int" />
-            <xs:element name="cookTime" type="xs:int" />
-            <xs:element name="servings" type="xs:int" />
-            <xs:element name="cuisine" type="Cuisine" />
-            <xs:element name="calories" type="xs:int" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="instructions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="step" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tags" type="tagList" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="recipeList">
-        <xs:sequence>
-            <xs:element name="recipe" type="Recipe" maxOccurs="unbounded"/>
-        </xs:sequence>
+  <xs:element name="menus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="menu" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:complexType>
+  </xs:element>
 
-    <xs:simpleType name="Cuisine">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="American" />
-            <xs:enumeration value="Italian" />
-            <xs:enumeration value="Mexican" />
-            <xs:enumeration value="Chinese" />
-            <xs:enumeration value="Indian" />
-            <xs:enumeration value="Thai" />
-            <xs:enumeration value="Japanese" />
-            <xs:enumeration value="Mediterranean" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <!-- Define the ingredient type -->
-    <xs:complexType name="IngredientType">
-        <xs:attribute name="id" type="xs:ID" use="required" />
+  <xs:element name="menu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="description" type="xs:string"/>
+        <xs:element name="recipes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="recipe" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" type="xs:IDREF"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:keyref name="recipeRef" refer="recipeId">
+            <xs:selector xpath="r"/>
+            <xs:field xpath="@ref"/>
+          </xs:keyref>
+        </xs:element>
+        <xs:element name="price" type="xs:decimal"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
+  </xs:element>
 
-    <!-- Define the ingredients type as a sequence of ingredients -->
-    <xs:complexType name="IngredientsType">
-        <xs:sequence>
-            <xs:element name="ingredient" type="IngredientType" maxOccurs="unbounded"/>
-        </xs:sequence>
+  <xs:element name="ingredients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ingredient" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="ingredientList">
-        <xs:sequence>
-            <xs:element name="ingredientRef" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
+  <xs:element name="ingredient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="description" type="xs:string" minOccurs="0"/>
+        <xs:element name="category" type="xs:string"/>
+        <xs:element name="nutrition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="calories" type="xs:nonNegativeInteger"/>
+              <xs:element name="fat" type="xs:nonNegativeInteger"/>
+              <xs:element name="carbs" type="xs:nonNegativeInteger"/>
+              <xs:element name="protein" type="xs:nonNegativeInteger"/>
+            </xs:sequence>
+            <xs:attribute name="serving-size" type="xs:string"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="supplier" type="xs:string" minOccurs="0"/>
+        <xs:element name="unit-cost" type="xs:decimal" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="Customer">
-        <xs:sequence>
-            <xs:element name="firstName" type="xs:string" />
-            <xs:element name="lastName" type="xs:string" />
-            <xs:element name="email" type="xs:string" />
-            <xs:element name="phone" type="xs:string" />
-            <xs:element name="address" type="xs:string" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
+  <xs:element name="orders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="order" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="customerList">
-        <xs:sequence>
-            <xs:element name="customer" type="Customer" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
+  <xs:element name="order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="address" type="xs:string"/>
+              <xs:element name="email" type="xs:string"/>
+              <xs:element name="phone" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="order-date" type="xs:date"/>
+        <xs:element name="delivery-date" type="xs:date"/>
+        <xs:element name="total-cost" type="xs:decimal"/>
+        <xs:element name="menus-ordered">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="menu" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" type="xs:IDREF"/>
+                  <xs:attribute name="quantity" type="xs:positiveInteger"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:keyref name="menuRef" refer="menuId">
+            <xs:selector xpath="menu"/>
+            <xs:field xpath="@ref"/>
+          </xs:keyref>
+        </xs:element>
+        <xs:element name="delivery-person">
+          <xs:complexType>
+            <xs:attribute name="ref" type="xs:IDREF"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="status" type="orderStatus"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="Order">
-        <xs:sequence>
-            <xs:element name="customer" type="xs:IDREF" />
-            <xs:element name="recipe" type="xs:IDREF" />
-            <xs:element name="deliveryDate" type="xs:date" />
-            <xs:element name="deliveryAddress" type="xs:string" />
-            <xs:element name="deliveryInstructions" type="xs:string" minOccurs="0" />
-            <xs:element name="total" type="xs:decimal" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
+  <xs:element name="customer-feedback">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="feedback" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customer">
+                <xs:complexType>
+                  <xs:attribute name="ref" type="xs:IDREF"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="order">
+                <xs:complexType>
+                  <xs:attribute name="ref" type="xs:IDREF"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="rating" type="xs:nonNegativeInteger"/>
+              <xs:element name="comment" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
+    <xs:keyref name="customerRef" refer="customerId">
+      <xs:selector xpath="feedback/customer"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+    <xs:keyref name="orderRef" refer="orderId">
+      <xs:selector xpath="feedback/order"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+  </xs:element>
 
-    <xs:complexType name="orderList">
-        <xs:sequence>
-            <xs:element name="order" type="Order" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
+  <xs:element name="delivery-staff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="person" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="phone" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
+  </xs:element>
 
-    <xs:complexType name="DeliveryStaff">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string" />
-            <xs:element name="phone" type="xs:string" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
-    </xs:complexType>
+  <xs:simpleType name="mealType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="breakfast"/>
+      <xs:enumeration value="lunch"/>
+      <xs:enumeration value="dinner"/>
+      <xs:enumeration value="snack"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-    <xs:complexType name="deliveryStaffList">
-        <xs:sequence>
-            <xs:element name="deliveryStaff" type="DeliveryStaff" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
+  <xs:simpleType name="tagList">
+    <xs:list itemType="xs:string"/>
+  </xs:simpleType>
 
-
-    <xs:simpleType name="Rating">
-        <xs:restriction base="xs:int">
-            <xs:minInclusive value="1" />
-            <xs:maxInclusive value="5" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:complexType name="Feedback">
-        <xs:sequence>
-            <xs:element name="customer" type="xs:IDREF" />
-            <xs:element name="recipe" type="xs:IDREF" />
-            <xs:element name="rating" type="Rating" />
-            <xs:element name="comment" type="xs:string" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
-    </xs:complexType>
-
-    <xs:complexType name="feedbackList">
-        <xs:sequence>
-            <xs:element name="feedback" type="Feedback" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
+  <xs:simpleType name="orderStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pending"/>
+      <xs:enumeration value="processing"/>
+      <xs:enumeration value="shipped"/>
+      <xs:enumeration value="delivered"/>
+      <xs:enumeration value="cancelled"/>
+    </xs:restriction>
+  </xs:simpleType>
 
 </xs:schema>
