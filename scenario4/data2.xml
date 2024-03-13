@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<recipes>
+  <recipe>
+    <name>Chicken Alfredo Pasta</name>
+    <description>Creamy and savory chicken Alfredo pasta</description>
+    <ingredients>
+                <ingredientRef>Pasta</ingredientRef>
+                <ingredientRef>Chickenbreast</ingredientRef>
+                <ingredientRef>Heavycream</ingredientRef>
+                <ingredientRef>Parmesancheese</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Butter</ingredientRef>
+            </ingredients>
+    <instructions>Cook pasta, sauté chicken, and mix with a creamy Alfredo sauce.</instructions>
+    <prepTime>25</prepTime>
+    <cookTime>20</cookTime>
+    <servings>6</servings>
+    <cuisine>Italian</cuisine>
+    <calories>500</calories>
+  </recipe>
+  <recipe>
+    <name>Spinach and Feta Stuffed Chicken</name>
+    <description>Delicious spinach and feta stuffed chicken breasts</description>
+    <ingredients>
+                <ingredientRef>Chickenbreasts</ingredientRef>
+                <ingredientRef>Spinach</ingredientRef>
+                <ingredientRef>Fetacheese</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Oliveoil</ingredientRef>
+                <ingredientRef>Herbs</ingredientRef>
+            </ingredients>
+    <instructions>Stuff chicken with spinach and feta, bake until golden brown.</instructions>
+    <prepTime>30</prepTime>
+    <cookTime>25</cookTime>
+    <servings>4</servings>
+    <cuisine>Mediterranean</cuisine>
+    <calories>350</calories>
+  </recipe>
+  <recipe>
+    <name>Vegetarian Stir-Fry</name>
+    <description>Quick and tasty vegetable stir-fry</description>
+    <ingredients>
+                <ingredientRef>Broccoli</ingredientRef>
+                <ingredientRef>Carrots</ingredientRef>
+                <ingredientRef>Bellpeppers</ingredientRef>
+                <ingredientRef>Parmesancheese</ingredientRef>
+                <ingredientRef>Soysauce</ingredientRef>
+                <ingredientRef>Ginger</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+            </ingredients>
+    <instructions>Sauté vegetables in a hot pan with soy sauce, ginger, and garlic.</instructions>
+    <prepTime>15</prepTime>
+    <cookTime>10</cookTime>
+    <servings>3</servings>
+    <cuisine>American</cuisine>
+    <calories>200</calories>
+  </recipe>
+  <recipe>
+    <name>Teriyaki Salmon</name>
+    <description>Flavorful teriyaki-glazed salmon</description>
+    <ingredients>
+                <ingredientRef>Salmonfillets</ingredientRef>
+                <ingredientRef>Soysauce</ingredientRef>
+                <ingredientRef>Teriyakisauce</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Parmesancheese</ingredientRef>
+                <ingredientRef>Ginger</ingredientRef>
+                <ingredientRef>Greenonions</ingredientRef>
+            </ingredients>
+    <instructions>Marinate salmon in a mixture of soy sauce, teriyaki sauce, garlic, and ginger. Grill until cooked.</instructions>
+    <prepTime>20</prepTime>
+    <cookTime>15</cookTime>
+    <servings>4</servings>
+    <cuisine>Japanese</cuisine>
+    <calories>300</calories>
+  </recipe>
+  <recipe>
+    <name>Shrimp Scampi</name>
+    <description>Garlicky shrimp scampi over linguine</description>
+    <ingredients>
+                <ingredientRef>Shrimp</ingredientRef>
+                <ingredientRef>Linguine</ingredientRef>
+                <ingredientRef>Butter</ingredientRef>
+                <ingredientRef>Parmesancheese</ingredientRef>
+                <ingredientRef>Garlic</ingredientRef>
+                <ingredientRef>Whitewine</ingredientRef>
+                <ingredientRef>Parsley</ingredientRef>
+            </ingredients>
+    <instructions>Sauté shrimp in butter and garlic, deglaze with white wine, and toss with linguine and parsley.</instructions>
+    <prepTime>20</prepTime>
+    <cookTime>15</cookTime>
+    <servings>4</servings>
+    <cuisine>Italian</cuisine>
+    <calories>350</calories>
+  </recipe>
+</recipes>
