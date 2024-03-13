@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "deliveryStaffList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^ds\\d+$"
+            },
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string",
+              "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "phone"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "deliveryStaffList"
+    ],
+    "additionalProperties": false
+  }
